@@ -1,6 +1,7 @@
 package exercice1;
 
 import datamocklib.Person;
+import datamocklib.TxtHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +10,13 @@ public class MainExercice1 {
 
     // Format du fichier : firstName,lastName,birthDate,gender,cityOfResidence,cityOfBirth
     // Pas de header
-    public List<Person> parse(List<String> data) {
-        // A COMPLETER
-        return new ArrayList<Person>();
+    public static List<Person> parse(List<String> data) {
+        ArrayList<Person> arr = new ArrayList<Person>();
+        for(int i = 0 ; i < data.size(); i++){
+            String[] foo = data.get(i).split(",");
+            arr.add(new Person(foo[0], foo[1], foo[2], foo[3], foo[4], foo[5]));
+        }
+        return arr;
     }
 
     public static void main(String[] args) {
@@ -24,6 +29,8 @@ public class MainExercice1 {
          * Les données contiennent une trentaine de villes, Bonne chance !
         */
 
+        // Map reduce etc
+        parse(TxtHelper.getDataFromTxt("persons.txt")).stream().reduce();
 
     }
 }
