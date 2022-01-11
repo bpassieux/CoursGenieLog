@@ -1,6 +1,10 @@
 package exercice2;
 
+import datamocklib.Person;
 import exercice2.models.*;
+import datamocklib.TxtHelper;
+import java.util.List;
+import java.util.ArrayList;
 
 public class MainExercice2 implements Exo2 {
 
@@ -14,7 +18,17 @@ public class MainExercice2 implements Exo2 {
      */
     @Override
     public void displayPersonFromChambery() {
-        System.out.println("todo");
+        List<String> data = TxtHelper.getDataFromTxt("server.txt");
+        ArrayList<String> well = new ArrayList<String>();
+        for(int i = 0 ; i < data.size(); i++){
+            String[] foo = data.get(i).split(",");
+            System.out.println(foo);
+            if(foo[5].equals("Chambery")){
+                well.add(data.get(i));
+            }
+        }
+        System.out.println("Chambéry");
+        System.out.println(well);
     }
 
     /*
@@ -24,7 +38,6 @@ public class MainExercice2 implements Exo2 {
      */
     @Override
     public void displayBoomers() {
-
     }
 
     /*
@@ -33,7 +46,17 @@ public class MainExercice2 implements Exo2 {
      */
     @Override
     public void displayFemales() {
-
+        List<String> data = TxtHelper.getDataFromTxt("server.txt");
+        ArrayList<String> well = new ArrayList<String>();
+        for(int i = 0 ; i < data.size(); i++){
+            String[] foo = data.get(i).split(",");
+            System.out.println(foo);
+            if(foo[3].equals("female")){
+                well.add(data.get(i));
+            }
+        }
+        System.out.println("Female");
+        System.out.println(well);
     }
 
     /*
@@ -47,6 +70,7 @@ public class MainExercice2 implements Exo2 {
 
     public static void main(String[] args) {
         Exo2 exo2 = new MainExercice2();
-        exo2.displayBoomers();
+        exo2.displayPersonFromChambery();
+        exo2.displayFemales();
     }
 }

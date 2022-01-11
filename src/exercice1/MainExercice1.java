@@ -30,7 +30,7 @@ public class MainExercice1 {
         */
 
         // Map reduce etc
-        parse(TxtHelper.getDataFromTxt("persons.txt")).stream().reduce();
+        // parse(TxtHelper.getDataFromTxt("persons.txt")).stream().reduce();
 
     }
 }
